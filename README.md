@@ -21,7 +21,17 @@
 - A rule explains how and when to remake certain files and can also explain how and when to carry out an action.
 
 
+- by default, make starts with the first target (not targets whose names start with '.'). This is called the default goal.
+    make reads the makefile in the current directory and begins by processing the first rule.
 
+- The recompilation must be done if the source file or any of the header files named as prerequistites, is more recent than the object file,or if the object file does not exist.
+
+- The other rules are processed bacause their targets appear as prerequistites of the goal.If some other rule is not depended on by the goal,that rule is not processed,unless
+    you tell make to do so.
+    make would update automatically generated C programs,such as thos made by Bison or Yacc, by their own rules at this time.
+
+- After recompiling whichever object files need it, make decides whether to relink edit. This must be done if the file edit does not exist,or if any of the object  files
+    are newer than it.
 ### rules
 ### variables and macro
 ### functions
